@@ -8,20 +8,9 @@
  * @returns {string}
  */
 function formatDate(date, fromFormat, toFormat) {
-  let sep = '';
+  const sep = fromFormat[fromFormat.length - 1];
   const obj = {};
   const a = [];
-
-  for (const char of date) {
-    if (char === fromFormat[fromFormat.length - 1]) {
-      sep += char;
-      break;
-    }
-  }
-
-  if (sep === undefined) {
-    return 'Wrong separator!';
-  }
 
   function convertDigits() {
     if ('YYYY' in obj) {
